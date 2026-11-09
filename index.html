@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>מפת התמצאות · ISITTA Learning Map</title>
+<meta name="description" content="מפת התמצאות אישית לסדנת ISITTA · A personal learning map for the ISITTA workshop">
+<meta name="robots" content="noindex">
+<style>
+  :root { --bg:#f7f1e5; --ink:#2b2b28; --green:#3f5f45; --card:#fbf8f1; --line:#ddd5c2; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#1f2420; --ink:#ece8de; --green:#a9c7a0; --card:#2a302b; --line:#3d453e; } }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:"SF Hebrew","Arial Hebrew","Avenir Next","Helvetica Neue",Arial,sans-serif; }
+  header { max-width:960px; margin:0 auto; padding:28px 16px 8px; text-align:center; }
+  h1 { color:var(--green); font-size:clamp(24px,5vw,36px); margin:0 0 6px; }
+  .sub { opacity:.8; font-size:15px; }
+  .tabs { display:flex; justify-content:center; gap:8px; margin:18px 0 6px; }
+  .tabs button { font:inherit; font-size:15px; padding:8px 18px; border-radius:999px; border:1.5px solid var(--green); background:transparent; color:var(--green); cursor:pointer; }
+  .tabs button[aria-selected="true"] { background:var(--green); color:var(--bg); }
+  main { max-width:960px; margin:0 auto; padding:8px 16px 40px; }
+  .set { display:none; } .set.on { display:block; }
+  figure { margin:18px 0; background:var(--card); border:1px solid var(--line); border-radius:16px; padding:8px; }
+  img { display:block; width:100%; height:auto; border-radius:10px; }
+  footer { text-align:center; font-size:13px; opacity:.7; padding:0 16px 30px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>מפת התמצאות · ISITTA Learning Map</h1>
+  <div class="sub">מפת למידה אישית שהוכנה על בסיס חומרי הסדנה · A personal learning map based on the workshop materials</div>
+  <div class="tabs" role="tablist">
+    <button role="tab" id="t-he" aria-selected="true" onclick="show('he')">עברית</button>
+    <button role="tab" id="t-en" aria-selected="false" onclick="show('en')">English</button>
+  </div>
+</header>
+<main>
+  <section class="set on" id="he" lang="he">
+    <figure><img src="he/1.jpg" alt="מפת הלמידה הסומטית – חלק א׳"></figure>
+    <figure><img src="he/2.jpg" alt="מפת הלמידה הסומטית – חלק ב׳"></figure>
+    <figure><img src="he/3.jpg" alt="מילון מושגים מרכזי עם דימוי לזכירה"></figure>
+  </section>
+  <section class="set" id="en" lang="en" dir="ltr">
+    <figure><img src="en/1.jpg" alt="The Somatic Learning Map – Part A"></figure>
+    <figure><img src="en/2.jpg" alt="The Somatic Learning Map – Part B"></figure>
+    <figure><img src="en/3.jpg" alt="Key Concepts Glossary"></figure>
+  </section>
+</main>
+<footer>Based on ISITTA® workshop materials by Manuela Mischke-Reeds, MA, MFT</footer>
+<script>
+  function show(id) {
+    for (const s of document.querySelectorAll('.set')) s.classList.toggle('on', s.id === id);
+    for (const t of ['he', 'en']) document.getElementById('t-' + t).setAttribute('aria-selected', String(t === id));
+    try { history.replaceState(null, '', '#' + id); } catch (e) {}
+  }
+  if (location.hash === '#en') show('en');
+</script>
+</body>
+</html>

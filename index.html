@@ -21,7 +21,9 @@
   .set { display:none; } .set.on { display:block; }
   figure { margin:18px 0; background:var(--card); border:1px solid var(--line); border-radius:16px; padding:8px; }
   img { display:block; width:100%; height:auto; border-radius:10px; }
-  footer { text-align:center; font-size:13px; opacity:.7; padding:0 16px 30px; }
+  footer { max-width:960px; margin:0 auto; text-align:center; font-size:13px; line-height:1.6; opacity:.7; padding:0 16px 30px; }
+  footer p { margin:0; }
+  footer .nw { white-space:nowrap; }
 </style>
 </head>
 <body>
@@ -37,15 +39,22 @@
   <section class="set on" id="he" lang="he">
     <figure><img src="he/1.jpg" alt="מפת הלמידה הסומטית – חלק א׳"></figure>
     <figure><img src="he/2.jpg" alt="מפת הלמידה הסומטית – חלק ב׳"></figure>
-    <figure><img src="he/3.jpg" alt="מילון מושגים מרכזי עם דימוי לזכירה"></figure>
+    <figure><img src="he/3.jpg" alt="מילון מושגים מרכזי עם דימוי לזכירה – חלק 1" loading="lazy"></figure>
+    <figure><img src="he/4.jpg" alt="מילון מושגים מרכזי עם דימוי לזכירה – חלק 2" loading="lazy"></figure>
+    <figure><img src="he/5.jpg" alt="שכבת הלמידה – איך ללמוד את המפה" loading="lazy"></figure>
   </section>
   <section class="set" id="en" lang="en" dir="ltr">
     <figure><img src="en/1.jpg" alt="The Somatic Learning Map – Part A"></figure>
     <figure><img src="en/2.jpg" alt="The Somatic Learning Map – Part B"></figure>
-    <figure><img src="en/3.jpg" alt="Key Concepts Glossary"></figure>
+    <figure><img src="en/3.jpg" alt="Key Concepts Glossary – part 1" loading="lazy"></figure>
+    <figure><img src="en/4.jpg" alt="Key Concepts Glossary – part 2" loading="lazy"></figure>
+    <figure><img src="en/5.jpg" alt="The Learning Layer – how to learn the map" loading="lazy"></figure>
   </section>
 </main>
-<footer>מפה אישית שלי, מבוססת על חומרי סדנת ISITTA® של מנואלה מישקה־רידס, MA, MFT · My personal map, based on ISITTA® workshop materials by Manuela Mischke-Reeds, MA, MFT</footer>
+<footer>
+  <p lang="he" dir="rtl">מפה אישית שלי, מבוססת על חומרי סדנת ISITTA® של <span class="nw">מנואלה מישקה־רידס, MA, MFT</span></p>
+  <p lang="en" dir="ltr">My personal map, based on ISITTA® workshop materials by <span class="nw">Manuela Mischke-Reeds, MA, MFT</span></p>
+</footer>
 <script>
   function show(id) {
     for (const s of document.querySelectorAll('.set')) s.classList.toggle('on', s.id === id);
